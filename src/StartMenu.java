@@ -62,6 +62,8 @@ public class StartMenu {
                     System.out.println("viser alle reseveret tider med en total");
                 } if (rev == 2){
                     System.out.println("viser virksomhedens økonomi");
+                } else {
+                    System.out.println("fejl");
                 }
                 // Log in
                 // Vælg Oversigt over kalenderen hvor man kan se total
