@@ -26,7 +26,6 @@ public class StartMenu {
                 int betal = scanner.nextInt();
                 if (betal== 1){
                 Betalingssystem.betaling();
-                    System.out.println("GODKENDT :)");
                     //tilføjer transaktion til Økonomi klassen.
                 }
             } else if (valg == 2) {
