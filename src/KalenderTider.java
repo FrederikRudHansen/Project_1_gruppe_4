@@ -108,6 +108,6 @@ public class KalenderTider {
                 System.out.println(tid.substring(11));
             }
         }
-        System.out.println("taber");
+
     }
 }
