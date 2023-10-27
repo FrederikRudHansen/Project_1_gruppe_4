@@ -12,7 +12,7 @@ public class Betalingssystem {
         return svar.equalsIgnoreCase("ja");
     }
 
-    public static void main(String[] args) {
+    public static void betaling() {
         Betalingssystem betaling = new Betalingssystem();
         Scanner scanner = new Scanner(System.in);
 
@@ -28,6 +28,6 @@ public class Betalingssystem {
             System.out.println("Kunden skylder penge til naeste gang.");
         }
 
-        scanner.close();
+
     }
 }

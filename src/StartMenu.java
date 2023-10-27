@@ -25,6 +25,7 @@ public class StartMenu {
                 System.out.print("tast her: ");
                 int betal = scanner.nextInt();
                 if (betal== 1){
+                Betalingssystem.betaling();
                     System.out.println("GODKENDT :)");
                     //tilføjer transaktion til Økonomi klassen.
                 }
