@@ -1,8 +1,17 @@
+import java.awt.print.Book;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StartMenu {
 
     public static void menu() {
+        ArrayList<Kunde> kundeListe = new ArrayList<>();
+
+        int totalbeløb = 0;
+        for (Kunde kunde : kundeListe) {
+            totalbeløb += kunde.beløb;
+        }
+
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Velkommen til Harry´s Salon");
@@ -26,21 +35,37 @@ public class StartMenu {
                 int betal = scanner.nextInt();
                 if (betal== 1){
                     System.out.println("GODKENDT :)");
-                    //tilføjer transaktion til Økonomi klassen.
+
                 }
             } else if (valg == 2) {
                 System.out.println("tast 1: Kalender");
-                System.out.println("tast 2: Økonomi");
+                System.out.println("tast 2: Opret ny tid");
                 System.out.println("tast 3: Tilbage");
                 int fris = scanner.nextInt();
                 if (fris==1){
-                    BookTid.Book();
-                    System.out.println("kalender");
+                    for (Kunde kunde : kundeListe) {
+                        System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
+
+                    }
+
+
                 } if (fris==2){
-                    //viser balance
-                    System.out.println("balance...");
-                    //viser transaktioner
-                    System.out.println("transaktioner");
+
+                    System.out.print("Indtast navn: ");
+                    String navn = scanner.next();
+
+                    System.out.print("Indtast tid (f.eks. 11:00): ");
+                    String tid = scanner.next();
+
+                    System.out.print("Indtast beløb: ");
+                    int beløb = scanner.nextInt();
+
+                    // Opret en ny kunde og tilføj den til kundeListe
+                    Kunde nyKunde = new Kunde(navn, tid, beløb);
+                    kundeListe.add(nyKunde);
+
+                    System.out.println("Ny kunde oprettet!");
+
                 }
 
 
@@ -59,7 +84,7 @@ public class StartMenu {
                 int rev = scanner.nextInt();
 
                 if (rev == 1){
-                    System.out.println("viser alle reseveret tider med en total");
+                    System.out.println("Total "+ totalbeløb);
                 } if (rev == 2){
                     System.out.println("viser virksomhedens økonomi");
                 } else {

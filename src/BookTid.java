@@ -5,9 +5,9 @@ public class BookTid {
     public static void Book() {
         ArrayList<Kunde> kundeListe = new ArrayList<>();
 
-        Kunde kunde1 = new Kunde("Bodil", 1100,200);
+        Kunde kunde1 = new Kunde("Bodil", "11:00",200);
 
-        Kunde kunde2 = new Kunde("Hans",1200,200);
+        Kunde kunde2 = new Kunde("Hans","12:00",200);
 
         kundeListe.add(kunde1);
         kundeListe.add(kunde2);
@@ -27,12 +27,12 @@ public class BookTid {
 
 class Kunde{
     String navn;
-    int tider;
+    String tider;
     int beløb;
 
     LocalDate dato;
 
-Kunde (String navn, int tid, int beløb){
+Kunde (String navn, String tid, int beløb){
 this.navn=navn;
 tider=tid;
 this.beløb=beløb;
