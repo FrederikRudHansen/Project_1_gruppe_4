@@ -34,7 +34,7 @@ public class StartMenu {
                 System.out.println("tast 3: Tilbage");
                 int fris = scanner.nextInt();
                 if (fris==1){
-                    //viser kalenderen
+                    BookTid.Book();
                     System.out.println("kalender");
                 } if (fris==2){
                     //viser balance

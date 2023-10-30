@@ -2,14 +2,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class BookTid {
-    public static void main(String[] args) {
+    public static void Book() {
         ArrayList<Kunde> kundeListe = new ArrayList<>();
 
         // Opret kundeobjekter og tilføj dem til listen
-        Kunde kunde1 = new Kunde("Bodil", 1130,200);
+        Kunde kunde1 = new Kunde("Bodil", 1100,200);
 
-
-        Kunde kunde2 = new Kunde("Hans",1130,200);
+        Kunde kunde2 = new Kunde("Hans",1200,200);
 
         kundeListe.add(kunde1);
         kundeListe.add(kunde2);
@@ -25,7 +24,7 @@ public class BookTid {
             System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
 
         }
-        System.out.println(totalbeløb);
+        System.out.println("samlet beløb "+totalbeløb);
     }
 }
 
