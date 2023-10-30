@@ -30,12 +30,13 @@ class Kunde{
     String tider;
     int beløb;
 
-    LocalDate dato;
+
 
 Kunde (String navn, String tid, int beløb){
 this.navn=navn;
 tider=tid;
 this.beløb=beløb;
+
 
 }
 
