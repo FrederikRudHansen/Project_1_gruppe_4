@@ -8,9 +8,8 @@ public class StartMenu {
         ArrayList<Kunde> kundeListe = new ArrayList<>();
 
         int totalbeløb = 0;
-        for (Kunde kunde : kundeListe) {
-            totalbeløb += kunde.beløb;
-        }
+        int balance = 100;
+        int totalBal = balance + totalbeløb;
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -38,11 +37,13 @@ public class StartMenu {
 
                 }
             } else if (valg == 2) {
-                System.out.println("tast 1: Kalender");
+                System.out.println("tast 1: Vis aftaler");
                 System.out.println("tast 2: Opret ny tid");
-                System.out.println("tast 3: Tilbage");
+                System.out.println("tast 3: Slet aftaler");
+                System.out.println("tast 4: Tilbage");
                 int fris = scanner.nextInt();
                 if (fris==1){
+                    System.out.println("Alle aftaler ⇩");
                     for (Kunde kunde : kundeListe) {
                         System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
 
@@ -54,7 +55,41 @@ public class StartMenu {
                     System.out.print("Indtast navn: ");
                     String navn = scanner.next();
 
-                    System.out.print("Indtast tid (f.eks. 11:00): ");
+                    System.out.print("Indtast dato og tid feks. (24-12-2023, 11:00): ");
+                    String tid = scanner.next();
+
+                    System.out.print("Indtast beløb: ");
+                    int beløb = scanner.nextInt();
+
+                    // Opret en ny kunde og tilføj den til kundeListe
+                    Kunde nyKunde = new Kunde(navn, tid, beløb);
+                    kundeListe.add(nyKunde);
+                    
+                    totalbeløb += beløb;
+                    totalBal += beløb;
+
+                    System.out.println("Ny kunde oprettet");
+
+                }
+
+
+            } else if (valg == 3) {
+                System.out.println("tast 1: vis aftaler");
+                System.out.println("tast 2: Opret tid");
+                System.out.println("tast 3: Slet aftaler");
+                System.out.println("tast 4: Tilbage");
+                int sekr = scanner.nextInt();
+                if (sekr == 1){
+                    //viser kalenderen
+                    for (Kunde kunde : kundeListe) {
+                        System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
+
+                    }
+                } else if (sekr == 2){
+                    System.out.print("Indtast navn: ");
+                    String navn = scanner.next();
+
+                    System.out.print("Indtast dato og tid feks. (24-12-2023, 11:00): ");
                     String tid = scanner.next();
 
                     System.out.print("Indtast beløb: ");
@@ -64,18 +99,34 @@ public class StartMenu {
                     Kunde nyKunde = new Kunde(navn, tid, beløb);
                     kundeListe.add(nyKunde);
 
-                    System.out.println("Ny kunde oprettet!");
+                    totalbeløb += beløb;
+                    totalBal += beløb;
 
-                }
+                    System.out.println("Ny kunde oprettet");
 
+                } else if (sekr == 3){
+                    System.out.println("Indtast navn på kunden, du vil slette: ");
 
-            } else if (valg == 3) {
-                System.out.println("tast 1: Kalender");
-                System.out.println("tast 2: tilbage");
-                int sekr = scanner.nextInt();
-                if (sekr == 1){
-                    //viser kalenderen
-                    System.out.println("kalender");
+                    for (Kunde kunde : kundeListe) {
+                        System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
+
+                    }
+                    String navn = scanner.next();
+
+                    // Søg efter kunden med det angivne navn
+                    for (int i = 0; i < kundeListe.size(); i++) {
+                        Kunde kunde = kundeListe.get(i);
+                        if (kunde.navn.equals(navn)) { //hvis man skriver kundens præcise navn. bliver den slettet fra arraylisten
+                            kundeListe.remove(i);
+                            totalbeløb -= kunde.beløb;
+                            totalBal -= kunde.beløb;
+
+                            System.out.println("Kunde med navn "
+                                     + navn + " er blevet slettet.");
+                            break; // breaker når den har fundet kunden
+                        }
+                    }
+
                 }
             } else if (valg == 4) {
                 System.out.println("tast 1: Total beløb reseveret");
@@ -84,11 +135,19 @@ public class StartMenu {
                 int rev = scanner.nextInt();
 
                 if (rev == 1){
+                    for (Kunde kunde : kundeListe) {
+                        System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
+
+                    }
                     System.out.println("Total "+ totalbeløb);
+
                 } if (rev == 2){
-                    System.out.println("viser virksomhedens økonomi");
+
+                    System.out.println("Balance: "+balance);
+                    System.out.println("Reseveret betaling: "+ totalbeløb);
+                    System.out.println("Balance + Reseveret betaling: "+ totalBal);
                 } else {
-                    System.out.println("fejl");
+
                 }
                 // Log in
                 // Vælg Oversigt over kalenderen hvor man kan se total
