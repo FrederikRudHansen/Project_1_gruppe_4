@@ -5,7 +5,6 @@ public class BookTid {
     public static void Book() {
         ArrayList<Kunde> kundeListe = new ArrayList<>();
 
-        // Opret kundeobjekter og tilføj dem til listen
         Kunde kunde1 = new Kunde("Bodil", 1100,200);
 
         Kunde kunde2 = new Kunde("Hans",1200,200);
@@ -17,14 +16,12 @@ public class BookTid {
             totalbeløb += kunde.beløb;
         }
 
-        // Du kan tilføje flere kundeobjekter på samme måde
 
-        // For at få adgang til kundeobjekterne i listen, kan du bruge en løkke
         for (Kunde kunde : kundeListe) {
             System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
 
         }
-        System.out.println("samlet beløb "+totalbeløb);
+        System.out.println("Resveret beløb "+totalbeløb);
     }
 }
 
