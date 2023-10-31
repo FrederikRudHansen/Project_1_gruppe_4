@@ -7,8 +7,8 @@ public class StartMenu {
     public static void menu() {
         ArrayList<Kunde> kundeListe = new ArrayList<>();
 
-        int totalbeløb = 0;
-        int balance = 100;
+        int totalbeløb = 0; // Reseveret beløb der ikke er blevet betalt endnu
+        int balance = 100; // Virksomhed
         int totalBal = balance + totalbeløb;
 
         Scanner scanner = new Scanner(System.in);
@@ -101,7 +101,6 @@ public class StartMenu {
                     }
                     String navn = scanner.next();
 
-                    // Søg efter kunden med det angivne navn
                     for (int i = 0; i < kundeListe.size(); i++) {
                         Kunde kunde = kundeListe.get(i);
                         if (kunde.navn.equals(navn)) { //hvis man skriver kundens præcise navn. bliver den slettet fra arraylisten
@@ -124,8 +123,7 @@ public class StartMenu {
                     System.out.println("tast 4: Tilbage");
                     int sekr = scanner.nextInt();
                     if (sekr == 1) {
-                        //viser kalenderen
-                        for (Kunde kunde : kundeListe) {
+                        for (Kunde kunde : kundeListe) { // viser alle de aftaler der er blevet oprettet
                             System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
 
                         }
@@ -139,12 +137,11 @@ public class StartMenu {
                         System.out.print("Indtast beløb: ");
                         int beløb = scanner.nextInt();
 
-                        // Opret en ny kunde og tilføj den til kundeListe
                         Kunde nyKunde = new Kunde(navn, tid, beløb);
                         kundeListe.add(nyKunde);
 
                         totalbeløb += beløb;
-                        totalBal += beløb;
+                        totalBal += beløb; //
 
                         System.out.println("Ny kunde oprettet");
 
