@@ -8,7 +8,7 @@ public class StartMenu {
         ArrayList<Kunde> kundeListe = new ArrayList<>();
 
         int totalbeløb = 0; // Reseveret beløb der ikke er blevet betalt endnu
-        int balance = 100; // Virksomhed
+        int balance = 100; // Virksomhedens balance
         int totalBal = balance + totalbeløb;
 
         Scanner scanner = new Scanner(System.in);
