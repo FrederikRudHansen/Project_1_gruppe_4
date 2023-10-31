@@ -71,6 +71,7 @@ public class StartMenu {
 
 
                 }
+
                 if (fris == 2) {
 
                     System.out.print("Indtast navn: ");
@@ -115,6 +116,7 @@ public class StartMenu {
 
                         }
                     }
+                }
 
                 } else if (valg == 3) {
                     System.out.println("tast 1: vis aftaler");
@@ -198,4 +200,3 @@ public class StartMenu {
             } //while slut
         }
     }
-}
