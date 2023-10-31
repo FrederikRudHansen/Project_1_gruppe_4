@@ -186,7 +186,6 @@ public class StartMenu {
 
                     }
                     if (rev == 2) {
-
                         System.out.println("Balance: " + balance);
                         System.out.println("Reseveret betaling: " + totalbeløb);
                         System.out.println("Balance + Reseveret betaling: " + totalBal);
