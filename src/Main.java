@@ -3,5 +3,6 @@ public class Main {
         StartMenu startMenu = new StartMenu();
 
         startMenu.menu();
+        System.out.println("Tak for i dag :)");
     }
 }

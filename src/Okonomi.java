@@ -10,10 +10,7 @@ public class Okonomi {
 
     }
 }
-class betal{
-    int klipnig = 200;
 
-}
 class transaction {
     String text;
     LocalDate date;

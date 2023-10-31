@@ -195,8 +195,7 @@ public class StartMenu {
 
                     }
                     // Log in
-                    // Vælg Oversigt over kalenderen hvor man kan se total
-                    // vælg økonomi for at se salonens total og transaktioner.
+
                 }
 
             } //while slut
