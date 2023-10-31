@@ -6,6 +6,7 @@ public class StartMenu {
 
     public static void menu() {
         ArrayList<Kunde> kundeListe = new ArrayList<>();
+        ArrayList<Ferie> FerieDage = new ArrayList<>();
 
         int totalbeløb = 0; // Reseveret beløb der ikke er blevet betalt endnu
         int balance = 100; // Virksomhedens balance
@@ -60,7 +61,9 @@ public class StartMenu {
                 System.out.println("tast 1: Vis aftaler");
                 System.out.println("tast 2: Opret ny tid");
                 System.out.println("tast 3: Slet aftaler");
-                System.out.println("tast 4: Tilbage");
+                System.out.println("tast 4: Opret Feriedage");
+                System.out.println("tast 5: se ferier");
+                System.out.println("tast 6: Tilbage");
                 int fris = scanner.nextInt();
                 if (fris == 1) {
                     System.out.println("Alle aftaler ⇩");
@@ -73,6 +76,16 @@ public class StartMenu {
                 }
 
                 if (fris == 2) {
+                    System.out.println("Feriedage ⇩");
+                    for (Ferie ferie : FerieDage) {
+                        System.out.println("Navn: " + ferie.navn + " Dato: "+ ferie.dato);
+
+                    }
+                    System.out.println("Andre aftaler ⇩");
+                    for (Kunde kunde : kundeListe) {
+                        System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
+
+                    }
 
                     System.out.print("Indtast navn: ");
                     String navn = scanner.next();
@@ -83,8 +96,7 @@ public class StartMenu {
                     System.out.print("Indtast beløb: ");
                     int beløb = scanner.nextInt();
 
-                    // Opret en ny kunde og tilføj den til kundeListe
-                    Kunde nyKunde = new Kunde(navn, tid, beløb);
+                    Kunde nyKunde = new Kunde(navn, tid, beløb); // Opretter en ny kunde og tilføjer den til kundeListe
                     kundeListe.add(nyKunde);
 
                     totalbeløb += beløb;
@@ -116,6 +128,22 @@ public class StartMenu {
 
                         }
                     }
+                } else if (fris == 4){
+                    System.out.println("indtast navn: ");
+                    String navn = scanner.next();
+
+                    System.out.println("indtast slut dato og start dato feks. (12/10/2023-20/10/2023:");
+                    String dato = scanner.next();
+
+                    Ferie NyFerie = new Ferie(navn,dato);
+                    FerieDage.add(NyFerie);
+
+                } else if(fris==5){
+                    System.out.println("Feriedage ⇩");
+                    for (Ferie ferie : FerieDage) {
+                        System.out.println("Navn: " + ferie.navn + " Dato: "+ ferie.dato);
+
+                    }
                 }
 
                 } else if (valg == 3) {
@@ -130,6 +158,16 @@ public class StartMenu {
 
                         }
                     } else if (sekr == 2) {
+                        System.out.println("Feriedage ⇩");
+                        for (Ferie ferie : FerieDage) {
+                            System.out.println("Navn: " + ferie.navn + " Dato: "+ ferie.dato);
+
+                        }
+                        System.out.println("Andre aftaler ⇩");
+                        for (Kunde kunde : kundeListe) {
+                            System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
+
+                        }
                         System.out.print("Indtast navn: ");
                         String navn = scanner.next();
 

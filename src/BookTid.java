@@ -41,3 +41,20 @@ this.beløb=beløb;
 }
 
 }
+
+class Ferie{
+    String navn;
+    String dato;
+
+
+
+
+    Ferie (String navn, String dato){
+        this.navn=navn;
+        this.dato=dato;
+
+
+
+    }
+
+}
