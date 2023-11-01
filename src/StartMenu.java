@@ -11,6 +11,7 @@ public class StartMenu {
         int balance = 100; // Virksomhedens balance
         int totalBal = balance + totalbeløb;
 
+
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Velkommen til Harry´s Salon");
@@ -171,26 +172,35 @@ public class StartMenu {
                         }
 
                     }
-                } else if (valg == 4) {
-                    System.out.println("tast 1: Total beløb reseveret");
-                    System.out.println("tast 2: Økonomi");
-                    System.out.println("tast 3: Tilbage");
-                    int rev = scanner.nextInt();
+            } else if (valg == 4) {
+                System.out.println("tast 1: Total beløb reseveret");
+                System.out.println("tast 2: Økonomi");
+                System.out.println("tast 3: Tilbage");
+                int rev = scanner.nextInt();
+                scanner.nextLine(); //fjerner "newline" i linje 179 så "scanner.nextLine();" virker i linje 194
 
-                    if (rev == 1) {
-                        for (Kunde kunde : kundeListe) {
-                            System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
-
-                        }
-                        System.out.println("Total " + totalbeløb);
+                if (rev == 1) {
+                    for (Kunde kunde : kundeListe) {
+                        System.out.println("Navn: " + kunde.navn + ", Tider: " + kunde.tider + ", Beløb: " + kunde.beløb);
 
                     }
-                    if (rev == 2) {
+                    System.out.println("Total " + totalbeløb);
 
+                }
+                if (rev == 2) {
+                    String kode = "harry"; //koden til login
+                    System.out.println("Skriv koden for at få adgang til økonomi filerne");
+
+                    String kodeTilføjet = scanner.nextLine();
+
+                    if (kodeTilføjet.equals(kode)) {
+                        System.out.println("Kode bekræftet - Velkommen!");
                         System.out.println("Balance: " + balance);
                         System.out.println("Reseveret betaling: " + totalbeløb);
                         System.out.println("Balance + Reseveret betaling: " + totalBal);
                     } else {
+                        System.out.println("Forkert kode - Prøv igen!");
+
 
                     }
                     // Log in
@@ -199,4 +209,4 @@ public class StartMenu {
 
             } //while slut
         }
-    }
+    }}
