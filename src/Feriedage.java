@@ -12,7 +12,7 @@ public class Feriedage {
     }
 
     public void visFeriedage() {
-        System.out.println("Feriedage ⇩");
+        System.out.println("\nFeriedage ⇩");
         for (String feriedag : feriedage) {
             System.out.println(feriedag);
         }
